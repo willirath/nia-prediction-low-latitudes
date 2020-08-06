@@ -24,7 +24,7 @@ jobs:
       - name: Convert to HTML
         if: ${{ always() }}
         run: |
-          bash -c ". ${HOME}/.bashrc && conda activate notebook && cd ci_out/ && ls -1 *.ipynb | xargs -n1 -P4 -I {} jupyter nbconvert --to HTML {}"
+          bash -c ". ${HOME}/.bashrc && conda activate notebook && cd ci_out/ && jupyter nbconvert --to HTML \*.ipynb"
       - name: Upload notebook
         uses: actions/upload-artifact@v1
         if: ${{ always() }}
