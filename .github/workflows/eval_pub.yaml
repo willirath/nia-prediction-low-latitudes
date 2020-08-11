@@ -25,6 +25,8 @@ jobs:
         run: bash -c "conda init bash"
       - name: Run all notebooks with papermill
         run: |
+          export TAO_FTP_USER=${{ secrets.TAO_FTP_USER }} 
+          export TAO_FTP_PASS=${{ secrets.TAO_FTP_PASS }} 
           bash -c ". ${HOME}/.bashrc && conda activate notebook && .ci/run_all_notebooks.py --dir . --out ci_out/"
       - name: Convert to HTML
         if: ${{ always() }}
