@@ -29,6 +29,7 @@ jobs:
           export TAO_FTP_PASS=${{ secrets.TAO_FTP_PASS }} 
           bash -c ". ${HOME}/.bashrc && conda activate notebook && .ci/run_all_notebooks.py --dir . --out ci_out/"
       - name: Complete listing of data dirs
+        if: ${{ always() }}
         run: |
           du -sh *
       - name: Convert to HTML
