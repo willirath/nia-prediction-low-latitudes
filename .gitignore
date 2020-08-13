@@ -2,3 +2,4 @@
 dask-worker-space
 *.zarr
 .ftp_cred
+raw_buoy_data
